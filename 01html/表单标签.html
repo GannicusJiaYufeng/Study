@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+</head>
+<body>
+    <!--
+        form:
+        action：form表单提交请求地址
+        method：form表单请求参数提交方式
+                ---默认是 get方式
+                ---post 
+    -->
+    <form action="http://www.163.com" method="get">
+    <input type="text" name="username" value="aaa" />  <br />
+    <input type="password" name="password"/>  <br />
+
+    <!--单选按钮必须指定相同的name属性-->
+    <input type="radio" name="gender" value="男" id="man"/> 
+        <label for="man">男</label> 
+    <input type="radio" name="gender" value="女" id="woman"/>  
+        <label for="woman">女</label>
+         <br />
+    <!--复选按钮也具有相同name属性-->
+    <input type="checkbox" name="hobby" value="sleep" />睡觉
+    <input type="checkbox" name="hobby" value="game" />游戏
+    <input type="checkbox" name="hobby" value="coding" />编程
+    <input type="checkbox" name="hobby" value="sport" />运动 <br />
+    <!--隐藏属性hidden，可以让input标签在页面内隐藏，
+        但是他的name value同样会随着表单提交而提交 -->
+    <input type="hidden" name="id" value="001" />  <br />
+          
+     <input type="button" value="按钮一"/>
+     <input type="file" name="file"/> <br/>
+        <!--定义一个选择列表-->>
+        <select name="city">
+            <option value="bj">北京</option>
+            <option value="sh" selected>上海</option>
+        </select>    <br/>
+      <textarea rows="3" cols="30" name="remark"> </textarea><br/>
+       
+    <input type="submit" />
+    <input type="reset" />
+    </form>
+</body>
+</html>
