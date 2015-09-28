@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="~/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#imgValidCode").click(function () {
+                //点击图片验证码刷新
+                this.src = 'ValidCode.ashx?d=' + Math.random();
+            })
+            $("#btnLogin").click(function () {
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var validCode = $("#validCode").val();
+                var autologin = $("#autologin").val();
+               /* if (username.length <= 0 || password.length <= 0||validCode.length<=0) {
+                    alert("用户名,密码和验证码都必须填写");
+                    return;
+                }*/
+                $.ajax({
+                    type: "post",
+                    url: "Login.ashx",
+                    data: { username: username, action: "login", password: password, validCode: validCode, autologin: autologin },
+                    success: function (data) {
+                        if (data.status == "error") {
+                            //只有这句话刷新验证码是不安全的
+                            $("#imgValidCode").attr("src", "ValidCode.ashx?d=" + new Date());
+                            alert(data.msg);
+                        }
+                        else if (data.status=="ok") {
+                            window.location.href = "Index.ashx";
+                        } else {
+                            alert("status未知");
+                        }
+                    },
+                    error: function () {
+                        alert("通讯失败");
+                    }          
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    用户名：<input type="text" id="username" /><br />
+    密码：<input type="password" id="password" /><br />
+    验证码：<input type="text" id="validCode" /><img id="imgValidCode" src="ValidCode.ashx" /><a href="">看不清？点一下</a><br />
+    <input type="checkbox" id="autologin" />下次自动登陆
+    <input type="button" id="btnLogin" value="登陆" />
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="~/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSave").click(function () {
+                var username = $("#username").val();
+                var password = $("#password").val();
+                var ids = new Array();
+                $(":checkbox[name=selectedRoleIds]:checked").each(function () {
+
+                    ids.push($(this).val());
+                })
+                $.ajax({
+                    type: "post", url: "AdminUserController.ashx",
+                    data: { id:@Model.id, action: "editSave" ,roleids:ids.join(","),name:"@Model.name"},
+                    success: function (data) {
+                        if (data.status == "error") {
+                            alert(data.msg);
+                            return;
+                        }
+                        else if (data.status == "ok") {
+                            window.location.href = "AdminUserController.ashx?action=list";
+                        }
+                    },
+                    error: function () {
+                        alert("保存请求出错！");
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>用户名：</td>
+            <td><input type="text" id="username" value="@Model.name"  disabled/></td>
+        </tr>
+        <tr>
+
+            <td>重新分配角色：</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                @KHRazor.KHHelper.CheckBoxList(@Model.roles, "Id", "Name", @Model.selectedRoles, "selectedRoleIds")
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="button" id="btnSave" value="保存" /></td>
+            <td></td>
+        </tr>
+    </table>
+</body>
+</html>

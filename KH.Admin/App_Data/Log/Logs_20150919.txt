@@ -1,0 +1,5 @@
+2015-09-19 11:22:02,287 [8] ERROR KH.Admin.Global - 系统发生未处理异常
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 KH.Admin.AdminUser.AdminOperationLogSerach.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\AdminUser\AdminOperationLogSerach.ashx.cs:行号 43
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

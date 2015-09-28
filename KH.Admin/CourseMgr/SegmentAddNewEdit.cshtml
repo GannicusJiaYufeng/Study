@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+    $(function () {
+        $("#btnSave").click(function () {
+            var name = $("#Name").val();
+            var seqNo = $("#SeqNo").val();
+            var videoCode = $("#VideoCode").val();
+            var note = UE.getEditor('noteEditor').getContent();//根据原理得知（uedite动态生成了一堆东西），不能$("#noteEditor").val()
+            $.ajax({
+                type: "post", url: "SegmentController.ashx",dataType:"json",
+                data: { action: "@Model.action" ,chapterId:"@Model.chapterId",
+                        Name:name,SeqNo:seqNo,VideoCode:videoCode,Note:note,id:"@Model.id"
+                    },
+                    success:function(data){
+                        if(data.status=="ok")
+                        {
+                            window.location.href="SegmentController.ashx?action=list&chapterId=@Model.chapterId";
+                    }
+                    else if (data.status=="error") {
+                        alert(data.msg);
+                    }
+                    else{
+                        alert("status返回错误");
+                    }
+                },
+                error:function(){alert("操作字段出错");}
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+     <input type="hidden" name="action" value="@Model.action" />
+    段落名称：<input type="text" id="Name" value="@Model.name" /><br />
+    序号：<input type="text" id="SeqNo" value="@Model.oldSeqNo" /><br />
+    视频代码：<textarea id="VideoCode" rows="5" cols="50" value="@Model.oldVideoCode"></textarea><br />
+    笔记：<script id="noteEditor" name="noteEditor" type="text/plain">@Model.oldNote</script><br />
+   
+     <input type="button" id="btnSave"  value="保存" />
+
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('noteEditor', {"allowDivTransToP":true});
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="~/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn").click(function () {
+                var id = $("#id").val();
+                var action=$("#action").val();
+                var name = $("#Name").val();
+                var selectedPIds = new Array();//获得选中的checkbox的value数组
+                $(":checkbox[name=selectedPowerIds]:checked").each(function () {
+                    selectedPIds.push($(this).val());
+                });
+                $.ajax({
+                    type: "post",
+                    url: "RoleController.ashx",
+                    data: { action: "save",id:id,saveAction:action, name: name, selectedPIds: selectedPIds.join(",") },
+                    success: function (data) {
+                        if (data.status=="error") {
+                            alert(data.msg);
+                            return;
+                        }
+                        else if(data.status=="ok") {
+                            location.href = "RoleController.ashx?action=list";
+                        }
+                        else {
+                            alert("status返回出错了");
+                        }
+                       
+                    },
+                    error: function () {
+                        alert("操作角色失败");
+                    }
+                })
+            })
+        })
+
+    </script>
+</head>
+<body>
+    <input type="hidden" id="action" value="@Model.action" />
+    <input type="hidden" id="id" value="@Model.id" />
+    角色名称:<input type="text" id="Name" value="@Model.name" /><br />
+    拥有的权限：
+    @KHRazor.KHHelper.CheckBoxList(@Model.powers, "Id", "Name", @Model.selectedPowers, "selectedPowerIds")
+    <br />
+    <input type="button" value="保存" id="btn"/>
+</body>
+</html>

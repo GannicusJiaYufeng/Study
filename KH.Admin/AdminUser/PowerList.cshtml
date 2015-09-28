@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <a href="~/AdminUser/PowerController.ashx?action=addnew">新增权限</a>
+    <table>
+        <thead>
+            <tr>
+                <th>权限名称</th><th>修改</th><th>删除</th>
+            </tr>
+        </thead>
+        @{
+            List<KH.Model.Powers> powers = (List<KH.Model.Powers>)Model;
+            foreach (var power in powers)
+            {
+                <tr>
+                    @*上面的@表示花括号中是C#代码，下面的@表示对后面的表达式进行输出*@
+                    <td>@power.Name</td>
+                    <td><a href="~/AdminUser/PowerController.ashx?action=edit&id=@power.Id">修改</a></td>
+                    <td><a href="~/AdminUser/PowerController.ashx?action=delete&id=@power.Id">删除</a></td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>

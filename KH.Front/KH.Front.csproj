@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9EA9290B-2F02-487E-9245-9154832971EF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KH.Front</RootNamespace>
+    <AssemblyName>KH.Front</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="index.shtml" />
+    <None Include="joinus.shtml" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\course.css" />
+    <Content Include="css\main.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="foot.html" />
+    <Content Include="Global.asax" />
+    <Content Include="head.html" />
+    <Content Include="headend.html" />
+    <Content Include="imgs\con-1.png" />
+    <Content Include="imgs\con-2.png" />
+    <Content Include="imgs\job.png" />
+    <Content Include="imgs\logo-1.png" />
+    <Content Include="imgs\logo-2.png" />
+    <Content Include="imgs\slider-1.jpg" />
+    <Content Include="imgs\slider-2.jpg" />
+    <Content Include="imgs\slider-3.jpg" />
+    <Content Include="imgs\title-bg.png" />
+    <Content Include="imgs\tx.png" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\slider.js" />
+    <Content Include="linkscript.html" />
+    <Content Include="navbar.html" />
+    <Content Include="ViewSegment.ashx" />
+    <Content Include="Error.cshtml" />
+    <Content Include="ViewSegment.cshtml" />
+    <Content Include="ViewCourse.ashx" />
+    <Content Include="ViewCourse.cshtml" />
+    <None Include="aboutus.shtml" />
+    <Content Include="文章内页.html" />
+    <Content Include="文章列表.html" />
+    <Content Include="课程列表页.html" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="FrontHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewCourse.ashx.cs">
+      <DependentUpon>ViewCourse.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSegment.ashx.cs">
+      <DependentUpon>ViewSegment.ashx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KH.BLL\KH.BLL.csproj">
+      <Project>{7f65f5a0-7f99-4b5a-b22c-798ff0ba588b}</Project>
+      <Name>KH.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KH.Model\KH.Model.csproj">
+      <Project>{6739c9a9-2e6e-40a0-a35a-90a3debabe92}</Project>
+      <Name>KH.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KHCommons\KHCommons.csproj">
+      <Project>{e8331df2-e052-49c1-b2e4-2c88f75a0f43}</Project>
+      <Name>KHCommons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KHRazor\KHRazor.csproj">
+      <Project>{5e06e720-dc7f-4ad3-8cac-dec057d3683e}</Project>
+      <Name>KHRazor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="News\" />
+    <Folder Include="upload\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3847</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3847/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

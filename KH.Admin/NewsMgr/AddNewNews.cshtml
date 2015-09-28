@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSave").click(function () {
+                var categoryId = $("#categoryId").val();
+                var title = $("#title").val();
+                var body = UE.getEditor('bodyEditor').getContent();
+                $.ajax({
+                    type: "post", url: "NewsController.ashx?action=addnewNewsSave",
+                    data: { categoryId: categoryId, title: title, body: body },
+                    success: function (data) {
+                        if (data.status == "ok") {
+                            window.location.href = "NewsController.ashx?action=newsList&id=" + categoryId;
+                        }
+                        else if (data.status == "error") {
+                            alert(data.msg);
+                        }
+                        else {
+                            alert("status返回出错");
+                        }
+                    },
+                    error: function () { alert("保存通讯出错");}
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="hidden" id="categoryId" value="@Model.categoryId" />
+    标题：<input type="text" id="title" /><br />
+    内容：
+    <script id="bodyEditor" name="bodyEditor" type="text/plain"></script>
+
+    <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="/ueditor/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+        var ue = UE.getEditor('bodyEditor', { "allowDivTransToP": true });
+    </script>
+    <br />
+    <input type="button" id="btnSave" value="保存" />
+</body>
+</html>

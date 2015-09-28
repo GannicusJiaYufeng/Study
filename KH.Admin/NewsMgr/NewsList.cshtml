@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnBatchStatic").click(function () {
+                $.ajax({
+                    type: "post", url: "NewsController.ashx",
+                    data: { action: "rebuildStatic",categoryId:@Model.categoryId },
+                    success:function(data){
+                        if(data.status=="ok")
+                        {
+                            alert("生成成功");
+                        }
+                        else{
+                            alert("生成失败");
+                        }
+                    },error:function(){ alert("生成通讯失败");}
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <a href="NewsController.ashx?action=addnewNews&categoryId=@Model.categoryId">新增新闻</a><br />
+     <a href="#" id="btnBatchStatic">一键重新生成静态页面</a>
+    <table>
+        <thead>
+            <tr><th>标题</th><th>发布日期</th><th>编辑</th><th>删除</th></tr>
+        </thead>
+        <tbody>
+            @{
+                List<KH.Model.News> news = Model.news;
+                foreach (var item in news)
+                {
+            <tr><td>@item.Title</td><td>@item.PostDateTime</td><td>编辑</td><td>删除</td></tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>

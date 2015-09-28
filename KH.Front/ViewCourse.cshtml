@@ -1,0 +1,68 @@
+﻿@using KHRazor
+@KHHelper.Include("~/head.html")
+<title>@Model.course.Name</title>
+@KHHelper.Include("~/linkscript.html")
+@KHHelper.Include("~/headend.html")
+@KHHelper.Include("~/navbar.html")
+
+<section>
+
+    <link href="css/course.css" rel="stylesheet">
+    <script type="text/javascript">
+        $(function () {
+            $("a[myname=chapter]:first").click();//默认让第一章展开
+        });
+    </script>
+
+    <div class="pmb-jumbotron">
+        <div class="container">
+            <h1>@Model.course.Name</h1>
+        </div>
+    </div>
+    <div class="container pmb-container">
+        <div class="row" id="tab1">
+            <div class="col-md-8 col-sm-7 pmb-table">
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    @{
+                        List<KH.Model.Chapters> chapters = Model.chapters;
+                        foreach (var chapter in chapters)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" myname="chapter" data-parent="#accordion" href="#collapse_@(chapter.Id)" aria-expanded="true" aria-controls="collapse_@(chapter.Id)">
+                                            @chapter.Name
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse_@(chapter.Id)" class="panel-collapse collapse" role="tabpanel">
+                                    <div class="panel-body">
+                                        <ul>
+                                            @{
+                            var segments = KH.Front.FrontHelper.GetSegment(chapter.Id);
+                            foreach (var segment in segments)
+                            {
+                                <li class="d">
+                                    <div class="count col-md-2"><a href="Segment@(segment.Id).ashx" target="_blank">第 @segment.SeqNo 节</a></div>
+                                    <div class="lt col-md-6"><a href="Segment@(segment.Id).ashx" target="_blank">@segment.Name</a></div>
+                                    <div class="rate col-md-2"> </div>
+                                    <div class="col-md-2">
+                                        <span class="status btn btn-default pull-right">
+                                            <a href="Segment@(segment.Id).ashx" target="_blank">免费</a>
+                                        </span>
+                                    </div>
+                                </li>
+                            }
+                                            }
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+@KHHelper.Include("~/foot.html")

@@ -1,0 +1,32 @@
+2015-09-28 15:32:15,893 [7] ERROR KH.Admin.Global - 系统发生未处理异常
+Microsoft.CSharp.RuntimeBinder.RuntimeBinderException: “System.Dynamic.DynamicObject”未包含“UserName登录匡衡教育后台管理系统”的定义
+   在 CallSite.Target(Closure , CallSite , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   在 CompiledRazorTemplates.Dynamic.cadadbd.Execute()
+   在 RazorEngine.Templating.TemplateBase.RazorEngine.Templating.ITemplate.Run(ExecuteContext context)
+   在 RazorEngine.Templating.TemplateService.Run(ITemplate template, DynamicViewBag viewBag)
+   在 RazorEngine.Templating.TemplateService.Parse(String razorTemplate, Object model, DynamicViewBag viewBag, String cacheName)
+   在 RazorEngine.Razor.Parse(String razorTemplate, Object model, String cacheName)
+   在 KHRazor.KHHelper.ParseRazor(HttpContext context, String csHtmlVirtualPath, Object model) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KHRazor\KHHelper.cs:行号 25
+   在 KH.Admin.Index.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\Index.ashx.cs:行号 21
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-09-28 22:35:10,513 [7] ERROR KH.Admin.Global - 系统发生未处理异常
+System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.IO.FileNotFoundException: 未能找到文件“F:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\NewsMgr\NewsListStatic.cshtml”。
+   在 System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   在 System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy, Boolean useLongPath, Boolean checkHost)
+   在 System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize, Boolean checkHost)
+   在 System.IO.File.InternalReadAllText(String path, Encoding encoding, Boolean checkHost)
+   在 System.IO.File.ReadAllText(String path)
+   在 KHRazor.KHHelper.ParseRazor(HttpContext context, String csHtmlVirtualPath, Object model) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KHRazor\KHHelper.cs:行号 23
+   在 KH.Admin.NewsMgr.NewsController.createNewsListStaticPage(Int64 categoryId) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\NewsMgr\NewsController.ashx.cs:行号 102
+   在 KH.Admin.NewsMgr.NewsController.addnewNewsSave(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\NewsMgr\NewsController.ashx.cs:行号 73
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   在 KH.Admin.BaseHandler.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\BaseHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

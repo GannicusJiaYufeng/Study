@@ -1,0 +1,26 @@
+<!--#include file="/head.html"-->
+<title>1</title>
+<!--#include file="/linkscript.html"-->
+<!--#include file="/headend.html"-->
+<!--#include file="/navbar.html"-->
+<main id="post-page" class="container mainContent" role="main">
+    <div class="row">
+        <div class="col-md-10 col-md-push-1">
+            <article class="panel post tag-promise tag-javascript">
+              <header class="panel-heading post-header">
+                        <h1 class="post-title text-center" style="color:red">
+                            <span>1</span>
+                        </h1>
+                        <h4 class="text-right" id="subtitle">类别：<a href="list_1.shtml">匡衡消息</a>；发表日期：2015/9/28</h4>
+               </header>
+            <section id="articleBody" class="panel-body post-content">
+                <p>1</p>
+            </section>
+            <section id="moreSiblings" class="panel-body post-content text-center">
+                <a href="list_1.shtml" class="btn btn-default" >查看更多匡衡消息&gt;&gt;</a>
+            </section>
+        </div>
+    </div>
+</main>
+
+<!--#include file="/foot.html"-->

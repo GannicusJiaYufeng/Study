@@ -1,0 +1,33 @@
+﻿@using System.Collections.Generic
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <a href="ChapterController.ashx?action=addnew&courseId=@Model.courseId">新增</a>
+    <table>
+        <thead>
+            <tr><th>章节名称</th><th>删除</th><th>修改</th><th>段落管理</th></tr>
+        </thead>
+        <tbody>
+            @{
+                IEnumerable<KH.Model.Chapters> chapters = (IEnumerable<KH.Model.Chapters>)Model.Chapters;
+                foreach (var chapter in chapters)
+                {
+                    <tr>
+                        <td>@chapter.Name</td>
+                        <td><a href="ChapterController.ashx?action=delete&chapterId=@chapter.Id&courseId=@Model.courseId">删除</a></td>
+                        <td>
+                        <td><a href="ChapterController.ashx?action=edit&chapterId=@chapter.Id&courseId=@Model.courseId">修改</a></td>
+                        </td>
+                        <td><a href="SegmentController.ashx?action=list&chapterId=@chapter.Id">段落管理</a></td>
+                    </tr>
+
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>

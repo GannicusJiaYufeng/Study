@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="~/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //在角色新增处有个新方法。更简单。
+            $("#btnBatchDelete").click(function () {
+                var inputs = $(":checkbox[name='selectUserId']:checked")   //jq选择器,获得被选中的checkbox
+                var strs = inputs.map(function () {
+                    return $(this).val(); //jq遍历 ------map() 方法  把每一项val()映射为一个数组
+                });
+                var ids = "";
+                for (var i = 0; i < strs.length; i++) {
+                    ids =ids+" "+ strs[i];   //用空格把这些选中项的id分开
+                }
+                ids = ids.trim();//去除首位的空格
+                $.ajax({      //把这些ids通过ajax传给ashx来进行批量删除
+                    type: "post", url: "AdminUserController.ashx",
+                    data: { action: "batchDelete", ids: ids },
+                    success: function (data) {
+                        window.location.href = "AdminUserController.ashx?action=list";
+                    },
+                    error: function () {
+                        alert("批量删除请求失败！");
+                    }
+                });
+            })
+            $("#btnBatchDisable").click(function () {
+                var inputs = $(":checkbox[name='selectUserId']:checked")   //jq选择器,获得被选中的checkbox
+                var strs = inputs.map(function () {
+                    return $(this).val(); //jq遍历 ------map() 方法  把每一项val()映射为一个数组
+                });
+                var ids = "";
+                for (var i = 0; i < strs.length; i++) {
+                    ids = ids + " " + strs[i];   //用空格把这些选中项的id分开
+                }
+                ids = ids.trim();//去除首位的空格
+                $.ajax({      //把这些ids通过ajax传给ashx来进行批量删除
+                    type: "post", url: "AdminUserController.ashx",
+                    data: { action: "btnBatchDisable", ids: ids },
+                    success: function (data) {
+                        window.location.href = "AdminUserController.ashx?action=list";
+                    },
+                    error: function () {
+                        alert("批量禁用请求失败！");
+                    }
+                });
+            })
+        })
+    </script>
+</head>
+<body>
+    <a href="AdminUserController.ashx?action=addnew">新增用户</a>
+
+    <table>
+        <thead>
+            <tr><th>选择</th><th>用户名</th><th>删除</th><th>禁用</th><th>重置</th></tr>
+        </thead>
+        <tbody>
+            @{
+                List<KH.Model.AdminUsers> users = (List<KH.Model.AdminUsers>)Model;
+                foreach (var user in users)
+                {
+                    if (!user.IsEnabled) { continue; }//不显示禁用的用户
+                    <tr>
+                        <td><input type="checkbox" name="selectUserId" value="@user.Id" /></td>
+                        <td>@user.UserName</td>
+                        <td><a href="AdminUserController.ashx?action=delete&id=@user.Id">删除</a></td>
+                        <td><a href="AdminUserController.ashx?action=disable&id=@user.Id">禁用</a></td>
+                        <td><a href="AdminUserController.ashx?action=NewPassword&id=@user.Id">重置</a></td>
+                        <td><a href="AdminUserController.ashx?action=edit&id=@user.Id">编辑</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <input type="button" id="btnBatchDelete" value="批量删除" />&nbsp;&nbsp;&nbsp;
+    <input type="button" id="btnBatchDisable" value="批量禁用" />
+</body>
+</html>

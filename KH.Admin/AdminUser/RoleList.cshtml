@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <a href="~/AdminUser/RoleController.ashx?action=addnew">新增角色</a>
+    <table>
+        <thead>
+            <tr>
+                <th>角色名称</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+        </thead>
+        @{
+            List<KH.Model.Roles> roles = (List<KH.Model.Roles>)Model;
+            foreach (var role in roles)
+            {
+                <tr>
+                    @*上面的@表示花括号中是C#代码，下面的@表示对后面的表达式进行输出*@
+                    <td>@role.Name</td>
+                    <td><a href="~/AdminUser/RoleController.ashx?action=edit&id=@role.Id">修改</a></td>
+                    <td><a href="~/AdminUser/RoleController.ashx?action=delete&id=@role.Id">删除</a></td>
+                </tr>
+            }
+        }
+    </table>
+</body>
+</html>

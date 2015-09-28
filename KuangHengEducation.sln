@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KH.DAL", "KH.DAL\KH.DAL.csproj", "{9499574D-2E41-43B2-9A33-D051539BF829}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KH.BLL", "KH.BLL\KH.BLL.csproj", "{7F65F5A0-7F99-4B5A-B22C-798FF0BA588B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KH.Model", "KH.Model\KH.Model.csproj", "{6739C9A9-2E6E-40A0-A35A-90A3DEBABE92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KH.Admin", "KH.Admin\KH.Admin.csproj", "{6B48FE2D-04A9-4373-9817-BD5D0E9AE675}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KH.Front", "KH.Front\KH.Front.csproj", "{9EA9290B-2F02-487E-9245-9154832971EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHRazor", "KHRazor\KHRazor.csproj", "{5E06E720-DC7F-4AD3-8CAC-DEC057D3683E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KHCommons", "KHCommons\KHCommons.csproj", "{E8331DF2-E052-49C1-B2E4-2C88F75A0F43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9499574D-2E41-43B2-9A33-D051539BF829}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9499574D-2E41-43B2-9A33-D051539BF829}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9499574D-2E41-43B2-9A33-D051539BF829}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9499574D-2E41-43B2-9A33-D051539BF829}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7F65F5A0-7F99-4B5A-B22C-798FF0BA588B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F65F5A0-7F99-4B5A-B22C-798FF0BA588B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F65F5A0-7F99-4B5A-B22C-798FF0BA588B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F65F5A0-7F99-4B5A-B22C-798FF0BA588B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6739C9A9-2E6E-40A0-A35A-90A3DEBABE92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6739C9A9-2E6E-40A0-A35A-90A3DEBABE92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6739C9A9-2E6E-40A0-A35A-90A3DEBABE92}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6739C9A9-2E6E-40A0-A35A-90A3DEBABE92}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B48FE2D-04A9-4373-9817-BD5D0E9AE675}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B48FE2D-04A9-4373-9817-BD5D0E9AE675}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B48FE2D-04A9-4373-9817-BD5D0E9AE675}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B48FE2D-04A9-4373-9817-BD5D0E9AE675}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EA9290B-2F02-487E-9245-9154832971EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EA9290B-2F02-487E-9245-9154832971EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EA9290B-2F02-487E-9245-9154832971EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EA9290B-2F02-487E-9245-9154832971EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E06E720-DC7F-4AD3-8CAC-DEC057D3683E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E06E720-DC7F-4AD3-8CAC-DEC057D3683E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E06E720-DC7F-4AD3-8CAC-DEC057D3683E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E06E720-DC7F-4AD3-8CAC-DEC057D3683E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8331DF2-E052-49C1-B2E4-2C88F75A0F43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8331DF2-E052-49C1-B2E4-2C88F75A0F43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8331DF2-E052-49C1-B2E4-2C88F75A0F43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8331DF2-E052-49C1-B2E4-2C88F75A0F43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

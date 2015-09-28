@@ -1,0 +1,73 @@
+<!--#include file="/head.html"-->
+<title>加入我们</title>
+<!--#include file="/linkscript.html"-->
+<!--#include file="/headend.html"-->
+<!--#include file="/navbar.html"-->
+<main id="post-page" class="container mainContent" role="main">
+    <div class="row">
+        <div class="col-md-10 col-md-push-1">
+            <article class="panel post tag-promise tag-javascript">
+                <header class="panel-heading post-header">
+                    <h1 class="post-title text-center">
+                        <span>加入我们</span>
+                    </h1>
+
+                </header>
+                <section id="articleBody" class="panel-body post-content">
+                    渠道总监
+                    招聘人数：3人；
+                    完成渠道销售推广工作；
+                    拓展、维护院校市场；
+                    带领招生咨询顾问，指导其协助完成渠道销售计划；
+                    工作地点：成都等
+
+                    校园大使
+                    范围：全国（包括港澳台、钓鱼岛及日本自治区）
+                    招募人数：500人
+                    欢迎各高校在校生、应届毕业生加入；
+                    岗位职责：
+                    负责如鹏网在高校的推广；
+                    善于交流、思路灵活；
+                    自己认为自己可以，渴望成功；
+
+                    学科教学总监
+                    招募Java、.Net、Android、IOS、C/C++等学科教学总监各一名；
+                    要求熟悉相应学科技术，有丰富的项目经验、教学经验和团队管理经验；
+                    被线下培训的“培养不完的新老师、学生投诉电话不断”这些无法解决的问题虐待够了、想通过互联网实现新的教学模式的人！你还等啥呢，快来吧！
+                    工作地点：北京
+
+                    技术讲师
+                    不用担心自己不会讲课，只要技术过关，讲课技巧我们会培训
+                    招聘人数：各学科招聘20-30人；
+                    招募Java、.Net、Android、IOS、C/C++等技术讲师；
+                    要求熟悉相应学科技术，有丰富的项目经验；
+                    吐字清晰、思路清晰、表达能力强；
+                    工作地点：北京；上海；广州；郑州；武汉；西安；南京；
+
+                    课程咨询师
+                    招募人数：50人
+                    岗位职责：
+                    负责客户的网络咨询、电话咨询等；
+                    准确介绍培训课程，帮助来访学员做出合理职业规划；
+                    配合教学和就业部门做好学生的后期管理工作；
+                    范围：北京；上海；广州；郑州；武汉；西安；南京；
+
+                    .Net研发工程师
+                    必须掌握ASP.Net MVC、Entity Framework（让WebForm去屎！）
+                    熟练掌握HTML、JavaScript、JQuery；
+                    理解不拖控件的ASP.Net编程的原理；
+                    熟练掌握SQLServer等数据库；
+                    有实际项目经验，熟悉互联网网站安全性、优化等；
+
+                    Android研发工程师
+                    熟悉Java面向对象编程，深刻理解面向对象；
+                    熟练掌握Android移动开发技术；
+                    熟悉Http协议、Socket编程；
+                    有成熟App开发经验；
+                    有应用商店打包、发布经验，被应用商店虐待的想跳楼的优先考虑；
+                </section>
+            </article>
+        </div>
+    </div>
+</main>
+<!--#include file="/foot.html"-->

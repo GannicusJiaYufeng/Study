@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+</head>
+<body>
+    <form action="ChapterController.ashx" method="post">
+        <input type="hidden" name="action" value="@Model.action" />
+        <input type="hidden" name="courseId" value="@Model.courseId" />
+        <input type="hidden" name="chapterId" value="@Model.id" />
+        <input type="hidden" name="oldSeqNo" value="@Model.oldSeqNo" />
+        <input type="hidden" name="oldname" value="@Model.name" />
+        章节名称：<input type="text" name="Name" value="@Model.name"/>
+        序号：<input type="text" name="SeqNo" value="@Model.oldSeqNo"/>
+        <input type="submit" value="保存" />
+    </form>
+</body>
+</html>

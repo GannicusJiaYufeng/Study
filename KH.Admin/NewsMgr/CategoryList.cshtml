@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <a href="NewsController.ashx?action=addnewCategory&parentId=@Model.parentId">新增类别</a>
+    <table>
+        <thead>
+            <tr><th>类别名称</th><th>编辑</th><th>删除</th><th>文章管理</th></tr>
+        </thead>
+        <tbody>
+            @{
+                List<KH.Model.NewsCategories> categories = Model.categories;
+                foreach (var cat in categories)
+                {
+                    <tr>
+                        <td>
+                            <a href="NewsController.ashx?action=categoryList&parentId=@cat.Id">@cat.Name</a>
+                        </td>
+                        <td>编辑</td>
+                        <td>删除</td>
+                        <td><a href="NewsController.ashx?action=newsList&id=@cat.Id">文章管理</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</body>
+</html>

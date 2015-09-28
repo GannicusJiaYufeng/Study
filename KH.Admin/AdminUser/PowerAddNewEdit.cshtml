@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script type="text/javascript" src="~/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn").click(function () {
+                var action = $("#action").val();
+                var id = $("#id").val();
+                var powername = $("#powername").val();
+                $.ajax({
+                    type: "post",
+                    url: "PowerController.ashx",
+                    data: { action: action, id: id, powername: powername },
+                    success: function (data) {
+                        if (data.status=="error") {
+                            alert(data.msg);
+                            return;
+                        }
+                        if (data.status=="ok") {
+                            location.href = "PowerController.ashx?action=list";
+                        }
+                        else {
+                            alert("status返回错误，去联系管理员");
+                        }
+                    },
+                    error: function () {
+
+                        alert("保存出错");
+                    }
+
+                })
+
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <input type="hidden" id="id" value="@Model.id" />
+    <input type="hidden" id="action" value="@Model.action" />
+    权限名：
+    <input type="text" id="powername" value="@Model.name" /><br />
+    <input type="button" id="btn" value="保存"/>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿@using KHRazor
+@KHHelper.Include("~/head.html")
+<title>@Model.Name</title>
+@KHHelper.Include("~/linkscript.html")
+@KHHelper.Include("~/headend.html")
+@KHHelper.Include("~/navbar.html")
+    <section>
+    <div style="width:98%">
+        <div style="width:800px;float:left;">
+            <h5>@Model.Name (本节视频已经播放 <span class="badge">1</span> 次，还剩 <span class="badge">4</span> 次播放机会)</h5>
+            <div class="tab-content over-hide">
+                @KHHelper.Raw(Model.VideoCode)
+            </div>
+        </div>
+
+        <div style="width:auto;margin-left:805px;height:650px; overflow:auto;">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#doc" data-toggle="tab"><span class="glyphicon glyphicon-file"></span>课程笔记</a></li>
+            </ul>
+            <div class="tab-content" id="tabKeChengBiJi">
+                <div class="tab-pane active" id="doc">
+                    @KHHelper.Raw(Model.Note)
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="clear:both"></div>
+</section>
+@KHHelper.Include("~/foot.html")

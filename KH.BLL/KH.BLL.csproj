@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7F65F5A0-7F99-4B5A-B22C-798FF0BA588B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KH.BLL</RootNamespace>
+    <AssemblyName>KH.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminOperationLogsBLL.cs" />
+    <Compile Include="AdminOperationLogsBLL.ext.cs" />
+    <Compile Include="AdminUserRolesBLL.cs" />
+    <Compile Include="AdminUserRolesBLL.ext.cs" />
+    <Compile Include="AdminUsersBLL.cs" />
+    <Compile Include="AdminUsersBLL.ext.cs" />
+    <Compile Include="ChaptersBLL.cs" />
+    <Compile Include="ChaptersBLL.ext.cs" />
+    <Compile Include="ConfigHelper.cs" />
+    <Compile Include="CoursesBLL.cs" />
+    <Compile Include="CoursesBLL.ext.cs" />
+    <Compile Include="DataCache.cs" />
+    <Compile Include="NewsBLL.cs" />
+    <Compile Include="NewsBLL.ext.cs" />
+    <Compile Include="NewsCategoriesBLL.cs" />
+    <Compile Include="PowersBLL.cs" />
+    <Compile Include="PowersBLL.ext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RolePowersBLL.cs" />
+    <Compile Include="RolePowersBLL.ext.cs" />
+    <Compile Include="RolesBLL.cs" />
+    <Compile Include="RolesBLL.ext.cs" />
+    <Compile Include="SegmentsBLL.cs" />
+    <Compile Include="SegmentsBLL.ext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KH.DAL\KH.DAL.csproj">
+      <Project>{9499574d-2e41-43b2-9a33-d051539bf829}</Project>
+      <Name>KH.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KH.Model\KH.Model.csproj">
+      <Project>{6739c9a9-2e6e-40a0-a35a-90a3debabe92}</Project>
+      <Name>KH.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KHCommons\KHCommons.csproj">
+      <Project>{e8331df2-e052-49c1-b2e4-2c88f75a0f43}</Project>
+      <Name>KHCommons</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

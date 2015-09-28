@@ -1,0 +1,93 @@
+2015-09-25 18:03:54,900 [13] ERROR KH.Admin.Global - 系统发生未处理异常
+System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_T_Segments_T_Chapters"冲突。该冲突发生于数据库"KHDB"，表"dbo.T_Segments", column 'ChapterId'。
+语句已终止。
+   在 Maticsoft.DBUtility.DbHelperSQL.ExecuteSql(String SQLString, SqlParameter[] cmdParms) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.DAL\DbHelperSQL.cs:行号 462
+   在 KH.DAL.ChaptersDAL.Delete(Int64 Id) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.DAL\ChaptersDAL.cs:行号 125
+   在 KH.BLL.ChaptersBLL.Delete(Int64 Id) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.BLL\ChaptersBLL.cs:行号 63
+   在 KH.Admin.CourseMgr.ChapterController.delete(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\CourseMgr\ChapterController.ashx.cs:行号 98
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   在 KH.Admin.BaseHandler.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\BaseHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-09-25 18:05:48,085 [12] ERROR KH.Admin.Global - 系统发生未处理异常
+System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_T_Segments_T_Chapters"冲突。该冲突发生于数据库"KHDB"，表"dbo.T_Segments", column 'ChapterId'。
+语句已终止。
+   在 Maticsoft.DBUtility.DbHelperSQL.ExecuteSql(String SQLString, SqlParameter[] cmdParms) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.DAL\DbHelperSQL.cs:行号 462
+   在 KH.DAL.ChaptersDAL.Delete(Int64 Id) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.DAL\ChaptersDAL.cs:行号 125
+   在 KH.BLL.ChaptersBLL.Delete(Int64 Id) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.BLL\ChaptersBLL.cs:行号 63
+   在 KH.Admin.CourseMgr.ChapterController.delete(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\CourseMgr\ChapterController.ashx.cs:行号 98
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   在 KH.Admin.BaseHandler.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\BaseHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-09-25 18:06:10,028 [15] ERROR KH.Admin.Global - 系统发生未处理异常
+System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_T_Chapters_T_Courses"冲突。该冲突发生于数据库"KHDB"，表"dbo.T_Chapters", column 'CourseId'。
+语句已终止。
+   在 Maticsoft.DBUtility.DbHelperSQL.ExecuteSql(String SQLString, SqlParameter[] cmdParms) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.DAL\DbHelperSQL.cs:行号 462
+   在 KH.DAL.CoursesDAL.Delete(Int64 Id) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.DAL\CoursesDAL.cs:行号 115
+   在 KH.BLL.CoursesBLL.Delete(Int64 Id) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.BLL\CoursesBLL.cs:行号 63
+   在 KH.Admin.CourseMgr.CourseController.delete(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\CourseMgr\CourseController.ashx.cs:行号 78
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   在 KH.Admin.BaseHandler.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\BaseHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-09-25 18:10:08,582 [17] ERROR KH.Admin.Global - 系统发生未处理异常
+System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.Data.SqlClient.SqlException: DELETE 语句与 REFERENCE 约束"FK_T_Segments_T_Chapters"冲突。该冲突发生于数据库"KHDB"，表"dbo.T_Segments", column 'ChapterId'。
+语句已终止。
+   在 Maticsoft.DBUtility.DbHelperSQL.ExecuteSql(String SQLString, SqlParameter[] cmdParms) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.DAL\DbHelperSQL.cs:行号 462
+   在 KH.DAL.ChaptersDAL.Delete(Int64 Id) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.DAL\ChaptersDAL.cs:行号 125
+   在 KH.BLL.ChaptersBLL.Delete(Int64 Id) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.BLL\ChaptersBLL.cs:行号 63
+   在 KH.Admin.CourseMgr.ChapterController.delete(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\CourseMgr\ChapterController.ashx.cs:行号 98
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   在 KH.Admin.BaseHandler.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\BaseHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-09-25 19:33:01,138 [8] ERROR KH.Admin.Global - 系统发生未处理异常
+System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 KH.Admin.CourseMgr.SegmentController.delete(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\CourseMgr\SegmentController.ashx.cs:行号 105
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   在 KH.Admin.BaseHandler.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\BaseHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-09-25 19:33:07,458 [11] ERROR KH.Admin.Global - 系统发生未处理异常
+System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 KH.Admin.CourseMgr.SegmentController.delete(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\CourseMgr\SegmentController.ashx.cs:行号 105
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   在 KH.Admin.BaseHandler.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\BaseHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2015-09-25 20:07:05,138 [9] ERROR KH.Admin.Global - 系统发生未处理异常
+System.Reflection.TargetInvocationException: 调用的目标发生了异常。 ---> System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 KH.Admin.CourseMgr.SegmentController.editSave(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\CourseMgr\SegmentController.ashx.cs:行号 81
+   --- 内部异常堆栈跟踪的结尾 ---
+   在 System.RuntimeMethodHandle.InvokeMethod(Object target, Object[] arguments, Signature sig, Boolean constructor)
+   在 System.Reflection.RuntimeMethodInfo.UnsafeInvokeInternal(Object obj, Object[] parameters, Object[] arguments)
+   在 System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   在 System.Reflection.MethodBase.Invoke(Object obj, Object[] parameters)
+   在 KH.Admin.BaseHandler.ProcessRequest(HttpContext context) 位置 f:\培训.net\项目文件\匡衡教育\KuangHengEducation\KH.Admin\BaseHandler.cs:行号 33
+   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

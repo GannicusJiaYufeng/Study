@@ -1,0 +1,24 @@
+<!--#include file="/head.html"-->
+<title>关于我们</title>
+<!--#include file="/linkscript.html"-->
+<!--#include file="/headend.html"-->
+<!--#include file="/navbar.html"-->
+    <main id="post-page" class="container mainContent" role="main">
+        <div class="row">
+            <div class="col-md-10 col-md-push-1">
+                <article class="panel post tag-promise tag-javascript">
+                    <header class="panel-heading post-header">
+                        <h1 class="post-title text-center">
+                            <span>关于匡衡</span>
+                        </h1>
+                        <h4 class="text-right" id="subtitle">类别：<a href="list_1.shtml">匡衡消息</a>；发表日期：2015/9/27</h4>
+                    </header>
+                    <section id="articleBody" class="panel-body post-content">
+                        <p>匡衡，字稚圭，西汉后期人，生卒年不详，西汉经学家，官至丞相，曾以“凿壁偷光”的苦读事迹名世，祖籍东海郡丞邑(今枣庄市峄城区)，“至衡始迁居邹邑(今邹城市)羊下村”（据朱承命修《邹县志》)。</p>
+                        <p>其“父世农夫，至衡好学，家贫，庸作以供资用”，“匡衡勤学而无烛，邻舍有烛而不逮，衡乃穿壁引其光，以书映光而读之”(《西京杂记》)。这就是匡衡凿壁偷光的故事，两千年来盛传不衰。匡衡青少年时期除了“庸作以供资用”，把得到的报酬买书买笔等学习用具外，史籍还记载，他还经常到书简收藏者那里去劳作而不取报酬，只是将借书作为交换条件。正因匡衡孜孜以读，因而成为一代经学大师。</p>
+                    </section>
+                </article>
+            </div>
+        </div>
+    </main>
+<!--#include file="/foot.html"-->
