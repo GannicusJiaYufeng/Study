@@ -11,8 +11,8 @@
                 var title = $("#title").val();
                 var body = UE.getEditor('bodyEditor').getContent();
                 $.ajax({
-                    type: "post", url: "NewsController.ashx?action=addnewNewsSave",
-                    data: { categoryId: categoryId, title: title, body: body },
+                    type: "post", url: "NewsController.ashx",
+                    data: { categoryId: categoryId, title: title, body: body,action:"@Model.action",id:"@Model.id" },
                     success: function (data) {
                         if (data.status == "ok") {
                             window.location.href = "NewsController.ashx?action=newsList&id=" + categoryId;
@@ -32,9 +32,9 @@
 </head>
 <body>
     <input type="hidden" id="categoryId" value="@Model.categoryId" />
-    标题：<input type="text" id="title" /><br />
+    标题：<input type="text" id="title" value="@Model.title" /><br />
     内容：
-    <script id="bodyEditor" name="bodyEditor" type="text/plain"></script>
+    <script id="bodyEditor" name="bodyEditor" type="text/plain">@Model.body</script>
 
     <script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
     <!-- 编辑器源码文件 -->

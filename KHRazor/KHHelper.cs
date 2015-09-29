@@ -183,5 +183,49 @@ namespace KHRazor
             sb.Append("</select>");
             return new RawString(sb.ToString());
         }
+        /// <summary>
+        /// 生成页码的html
+        /// </summary>
+        /// <param name="urlFormat">超链接的格式。list.ashx?pagenum={pagenum}。地址中用{pagenum}做为当前页码的占位符</param>
+        /// <param name="totalSize">总数据条数</param>
+        /// <param name="pageSize">每页多少条数据 </param>
+        /// <param name="currentPage">当前页的页码</param>
+        /// <returns></returns>
+        public static RawString Pager(string urlFormat, long totalSize,
+            long pageSize, long currentPage)
+        {
+            StringBuilder sb = new StringBuilder();  //currentPage当前页的页面。在当前页之前显示最多5个、之后显示最多5个。
+            // 15,16,17,18,19,(20),21,22,23,24,25
+            // 1,2,(3),4,5,6,7,8
+            //一共50页， 43,44,45,46,,47(48),49,50
+            //for(int i=)
+
+            //总页数
+            long totalPageCount = (long)Math.Ceiling((totalSize * 1.0f) / (pageSize * 1.0f));
+            //58*1.0f/10*1.0f=5.8，6
+            //60*1.0f/10*.1.f=6
+            //61*1.0f/10*1.0f=6.1=7
+            //在当前页面前后各最多显示5个页码
+            //计算页码条中第一条的页码
+            long firstPageNum = Math.Max(currentPage - 5, 1);
+            //计算页码条中最后一条的页码
+            long lastPageNum = Math.Min(currentPage + 5, totalPageCount);
+            sb.AppendLine("<li><a href='" +
+                urlFormat.Replace("{pagenum}", "1") + "'>首页</a></li>");
+            for (long i = firstPageNum; i <= lastPageNum; i++)
+            {
+                string url = urlFormat.Replace("{pagenum}", i.ToString());
+                if (i == currentPage)
+                {
+                    sb.Append("<li class='active'><a>" + i + "</a></li>");
+                }
+                else
+                {
+                    sb.Append("<li><a href='" + url + "'>" + i + "</a></li>");
+                }
+            }
+            sb.AppendLine("<li><a href='" +urlFormat.Replace("{pagenum}", totalPageCount.ToString()) + "'>末页</a></li>");
+            return new RawString(sb.ToString());
+        } 
     }
 }

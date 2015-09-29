@@ -56,6 +56,7 @@
     <Compile Include="NewsBLL.cs" />
     <Compile Include="NewsBLL.ext.cs" />
     <Compile Include="NewsCategoriesBLL.cs" />
+    <Compile Include="NewsCategoriesBLL.ext.cs" />
     <Compile Include="PowersBLL.cs" />
     <Compile Include="PowersBLL.ext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

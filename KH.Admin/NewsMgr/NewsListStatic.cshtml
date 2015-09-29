@@ -1,0 +1,40 @@
+﻿<!--#include file="/head.html"-->
+<title>@Model.CategoryName</title>
+<!--#include file="/linkscript.html"-->
+<!--#include file="/headend.html"-->
+<!--#include file="/navbar.html"-->
+
+<style type="text/css">
+.defaultLink a{color:#555;}/*修改链接的默认颜色*/
+.articleList li { margin-top:5px;}/*设置ul中li的间距*/
+</style>
+<main id="post-page" class="container   mainContent" role="main">
+    <div class="row">
+        <div class="col-md-10 col-md-push-1">
+            <article class="panel post tag-promise tag-javascript">
+              <header class="panel-heading post-header">
+                        <h1 class="post-title">
+                            <span>@Model.CategoryName</span>
+                        </h1>
+                    </header>
+                    <section class="panel-body post-content">
+                        <ul class="defaultLink list-unstyled articleList">
+                        @{
+                            List<KH.Model.News> news = Model.News;
+                            foreach(var item in news)
+                            {
+                        <li><a href='/News/@(item.CategoryId)/@(item.Id).shtml' target='_blank'>@item.Title</a></li>
+                            }
+                        }
+                        </ul>
+                    </section>
+            </article>
+            <ul class='pagination col-md-12'>
+                @KHRazor.KHHelper.Pager("/News/"+Model.CategoryId+"/index_{pagenum}.shtml",
+                    Model.TotalSize,10,Model.CurrentPage)
+            </ul>
+        </div>
+    </div>
+</main>
+
+<!--#include file="/foot.html"-->

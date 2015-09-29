@@ -78,6 +78,7 @@
     <Content Include="AdminUser\AdminUserController.ashx" />
     <Content Include="lib\log4net.dll" />
     <Content Include="Login.cshtml" />
+    <None Include="NewsMgr\AddNewEditCategory.cshtml" />
     <Content Include="ueditor\dialogs\anchor\anchor.html" />
     <Content Include="ueditor\dialogs\attachment\attachment.css" />
     <Content Include="ueditor\dialogs\attachment\attachment.html" />
@@ -381,6 +382,7 @@
     <Content Include="NewsMgr\NewsList.cshtml" />
     <Content Include="NewsMgr\AddNewNews.cshtml" />
     <Content Include="NewsMgr\ViewNews.cshtml" />
+    <Content Include="NewsMgr\NewsListStatic.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

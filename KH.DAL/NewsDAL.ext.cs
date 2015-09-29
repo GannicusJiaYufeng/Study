@@ -13,8 +13,28 @@ namespace KH.DAL
     public partial class NewsDAL
     {
         /// <summary>
+        ///是否有新闻属于这个新闻类别
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int IsHaveCategoryId(long id)
+        {
+            return (int)SQLHelperJYF.ExecuteScalar("select count(*) from T_News where CategoryId=@id", new SqlParameter("@id", id));
+        }
+
+        /// <summary>
+        /// 查询是不是已经有这个标题的新闻了
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
+        public int IsHaveThisTitle(string title)
+        {
+            return (int)SQLHelperJYF.ExecuteScalar("select count(*) from T_News where Title=@title", new SqlParameter("@title", title));
+        }
+
+        /// <summary>
         /// 获取categoryId=categoryId的数据，根据id排序，
-        /// rownum>=startRowNum&&rownum<=endRowNum
+        /// 并且页rownum>=startRowNum&&rownum<=endRowNum的  
         /// </summary>
         /// <param name="categoryId"></param>
         /// <param name="startRowNum"></param>

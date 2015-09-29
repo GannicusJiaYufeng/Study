@@ -53,6 +53,7 @@
     <Compile Include="CoursesDAL.ext.cs" />
     <Compile Include="DbHelperSQL.cs" />
     <Compile Include="NewsCategoriesDAL.cs" />
+    <Compile Include="NewsCategoriesDAL.ext.cs" />
     <Compile Include="NewsDAL.cs" />
     <Compile Include="NewsDAL.ext.cs" />
     <Compile Include="PowersDAL.cs" />

@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+</head>
+<body>
+    <form action="~/NewsMgr/NewsController.ashx" method="post">
+        <input type="hidden" name="parentId" value="@Model.parentId" />
+        <input type="hidden" name="id" value="@Model.id" />
+        <input type="hidden" name="action" value="@Model.action" />
+        <input type="text" name="name" value="@Model.name" /> <br />
+        <input type="submit" value="保存" />
+    </form>
+</body>
+</html>

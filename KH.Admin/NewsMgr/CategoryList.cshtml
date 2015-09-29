@@ -19,8 +19,8 @@
                         <td>
                             <a href="NewsController.ashx?action=categoryList&parentId=@cat.Id">@cat.Name</a>
                         </td>
-                        <td>编辑</td>
-                        <td>删除</td>
+                        <td><a href="NewsController.ashx?action=editCategory&id=@cat.Id">编辑</a></td>
+                        <td><a href="NewsController.ashx?action=deleteCategory&id=@cat.Id">删除</a></td>
                         <td><a href="NewsController.ashx?action=newsList&id=@cat.Id">文章管理</a></td>
                     </tr>
                 }

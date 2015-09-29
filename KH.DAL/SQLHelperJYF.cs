@@ -30,7 +30,12 @@ namespace KH.DAL
                 return cmd.ExecuteScalar();
             }
         }
-
+        /// <summary>
+        /// 返回一行一列结果的查询
+        /// </summary>
+        /// <param name="sql"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
         public static object ExecuteScalar(string sql, params SqlParameter[] parameters)
         {
             using (SqlConnection conn = CreatConnection())
