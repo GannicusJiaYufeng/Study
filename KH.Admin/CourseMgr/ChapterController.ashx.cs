@@ -89,6 +89,7 @@ namespace KH.Admin.CourseMgr
         public void delete(HttpContext context)
         {
             long chapterId = Convert.ToInt64(context.Request["chapterId"]);
+            int seqno=(new ChaptersBLL().GetModel(chapterId)).SeqNo;
             string name=(new ChaptersBLL().GetModel(chapterId)).Name;
             long courseId = Convert.ToInt64(context.Request["courseId"]);
             if ( new SegmentsBLL().IsHaveChapterId(chapterId))
@@ -96,6 +97,7 @@ namespace KH.Admin.CourseMgr
                 context.Response.Write("删除失败：为了安全，已经有段落属于这个章节,请先删除段落"); return;
             }
             new ChaptersBLL().Delete(chapterId);
+            new ChaptersBLL().DeleteChapterSeqNo(seqno);//
             context.Response.Redirect("ChapterController.ashx?action=list&id=" + courseId);
             AdminHelper.RecordOperationLog("删除了章节" + name);//写日志
         }

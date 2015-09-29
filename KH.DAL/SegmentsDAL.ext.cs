@@ -57,6 +57,15 @@ namespace KH.DAL
         {
             DbHelperSQL.ExecuteSql("update T_Segments set seqno+=1" + "where seqno>=" + sqlno);
         }
+            
+        /// <summary>
+        /// 删除时  修改其余的seqno
+        /// </summary>
+        /// <param name="seqno"></param>
+        public void DeleteChapterSeqNo(int seqno) 
+        {
+            DbHelperSQL.ExecuteSql("update T_Segments set seqno-=1" + "where seqno>" + seqno);
+        }
         /// <summary>
         /// 看段落中是否存在这个段落的id：chapterid
         /// </summary>

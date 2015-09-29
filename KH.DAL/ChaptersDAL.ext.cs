@@ -47,7 +47,15 @@ namespace KH.DAL
         {
            DbHelperSQL.ExecuteSql("update T_Chapters set seqno+=1"+ "where seqno>="+sqlno );
         }
+        /// <summary>
+        /// 删除时 修改其他的seqno
+        /// </summary>
+        /// <param name="seqno"></param>
 
+        public void DeleteChapterSeqNo(int seqno)
+        {
+            DbHelperSQL.ExecuteSql("update T_Chapters set seqno-=1" + "where seqno>" + seqno);
+        }
         /// <summary>
         /// 是不是有这个章节名了
         /// </summary>
@@ -58,7 +66,7 @@ namespace KH.DAL
             int i = (int)SQLHelperJYF.ExecuteScalar("select count(*) from T_Chapters where name=@name", new SqlParameter("@name", name));
             return i;
         }
-
+      
         /// <summary>
         /// 判断是否有属于某个课程的章节
         /// </summary>

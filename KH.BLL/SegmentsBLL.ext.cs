@@ -49,6 +49,14 @@ namespace KH.BLL
             }
         }
         /// <summary>
+        /// 删除时  修改其余的seqno
+        /// </summary>
+        /// <param name="seqno"></param>
+        public void DeleteChapterSeqNo(int seqno)
+        {
+            dal.DeleteChapterSeqNo(seqno);
+        }
+        /// <summary>
         /// 看段落中是否存在这个段落的id：chapterid
         /// </summary>
         /// <param name="chapterId"></param>

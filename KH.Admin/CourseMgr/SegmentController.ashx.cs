@@ -103,8 +103,8 @@ namespace KH.Admin.CourseMgr
             long id = Convert.ToInt64(context.Request["id"]);
             string name= (new SegmentsBLL().GetModel(id)).Name;
             int seqno = (new SegmentsBLL().GetModel(id)).SeqNo;
-               //修改seqno
             new SegmentsBLL().Delete(id);
+            new SegmentsBLL().DeleteChapterSeqNo(seqno); //修改seqno  
             AdminHelper.RecordOperationLog("删除了段落" +name);//写日志
             context.Response.Redirect("SegmentController.ashx?action=list&chapterId=" + chapterId);
         }

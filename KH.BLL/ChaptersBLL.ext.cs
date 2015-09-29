@@ -35,6 +35,16 @@ namespace KH.BLL
             }
 
         }
+
+         /// <summary>
+        /// 删除时 修改其他的seqno
+        /// </summary>
+        /// <param name="seqno"></param>
+
+        public void DeleteChapterSeqNo(int seqno)
+        {
+            dal.DeleteChapterSeqNo(seqno);
+        }
         /// <summary>
         /// 是否有这种sqlno的章节
         /// </summary>
