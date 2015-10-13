@@ -23,7 +23,7 @@
                             return;
                         }
                         else if (data.status == "ok") {
-                            window.location.href = "AdminUserController.ashx?action=list";
+                            window.location.href = "AdminUserController.ashx?action=list&page=1";
                         }
                     },
                     error: function () {
@@ -35,10 +35,11 @@
     </script>
 </head>
 <body>
-    <table>
+    <table border="1" width="50%" cellspacing="0px" style="border-collapse:
+    collapse" cellpadding="5px">
         <tr>
             <td>用户名：</td>
-            <td><input type="text" id="username" value="@Model.name"  disabled/></td>
+            <td><input type="text" id="username" value="@Model.name" disabled /></td>
         </tr>
         <tr>
 

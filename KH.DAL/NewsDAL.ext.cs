@@ -49,7 +49,6 @@ namespace KH.DAL
             sbSQL.AppendLine("where  t.rownum>=@startRowNum and t.rownum<=@endRowNum");
             DataSet ds = DbHelperSQL.Query(sbSQL.ToString(), new SqlParameter("@startRowNum", startRowNum)
                 , new SqlParameter("@endRowNum", endRowNum));
-
             List<News> list = new List<News>();
             foreach (DataRow datarow in ds.Tables[0].Rows)
             {

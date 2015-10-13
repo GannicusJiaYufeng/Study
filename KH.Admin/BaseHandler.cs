@@ -30,6 +30,12 @@ namespace KH.Admin
             {
                 throw new Exception("action不存在");
             }
+            object[] paAttrs = methodAction.GetCustomAttributes(typeof(PowerActionAttribute), false);
+            if (paAttrs.Length>0)
+            {
+                PowerActionAttribute powerAction = (PowerActionAttribute)paAttrs[0];
+                AdminHelper.CheckPower(powerAction.Name);
+            }
             methodAction.Invoke(this, new object[] { context });  //用指定参数调用当前实例所表示的方法
         }
     }

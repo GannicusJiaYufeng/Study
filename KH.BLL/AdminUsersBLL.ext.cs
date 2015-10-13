@@ -77,6 +77,17 @@ namespace KH.BLL
         {
             return dal.HasPower(userId, powerName);
         }
+            //r/ <summary>
+        /// 获取数据，根据id排序，
+        /// 并且页rownum>=startRowNum&&rownum<=endRowNum的  
+        /// </summary>
+        /// <param name="startRowNum"></param>
+        /// <param name="endRowNum"></param>
+        /// <returns></returns>
+        public List<AdminUsers> GetPagedAdminUser(long startRowNum, long endRowNum)
+        {
+           return dal.GetPagedAdminUser(startRowNum, endRowNum);
+        }
     }
     /// <summary>
     /// 登陆结果的枚举 。其实写到UI成也可以，还简单些，只是养成好习惯，顺便我复习一下枚举

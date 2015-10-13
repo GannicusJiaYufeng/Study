@@ -5,6 +5,7 @@ using System.Web;
 using KH.BLL;
 using KHRazor;
 using KH.Model;
+using KHCommons;
 namespace KH.Admin.CourseMgr
 {
     /// <summary>
@@ -78,6 +79,37 @@ namespace KH.Admin.CourseMgr
                 new CoursesBLL().Delete(courseId);
                 context.Response.Redirect("CourseController.ashx?action=list");
                 AdminHelper.RecordOperationLog("删除了课程" + name);//写日志
+            }
+            public  void CreatLearnCards(HttpContext context)
+            {
+                CoursesBLL courseBll = new CoursesBLL();
+                var courses= courseBll.GetModelList("");
+                KHHelper.OutputRazor(context, "~/CourseMgr/CreatLearnCards.cshtml", new { Courses=courses});
+            }
+            public void CreateLearnCardsSubmit(HttpContext context)
+            {
+                if (string.IsNullOrEmpty(context.Request["courseId"]) || string.IsNullOrEmpty(context.Request["prefix"]) || string.IsNullOrEmpty(context.Request["expireDays"]) || string.IsNullOrEmpty(context.Request["startNo"]) || string.IsNullOrEmpty(context.Request["endNo"]))
+                {
+                    AjaxHelper.WriteJson(context.Response, "error", "生成失败,所有项都必须填写，不能有空");
+                }
+                long courseId = Convert.ToInt64(context.Request["courseId"]);
+                string prefix = context.Request["prefix"];
+                int expireDays = Convert.ToInt32(context.Request["expireDays"]);
+                int startNo = Convert.ToInt32(context.Request["startNo"]);
+                int endNo = Convert.ToInt32(context.Request["endNo"]);
+                LearnCardsBLL learnCardBll = new LearnCardsBLL();
+                List<LearnCards> cards = new List<LearnCards>();
+                bool success = learnCardBll.GenerateCards(courseId, prefix, expireDays, startNo, endNo, cards);
+                if (success)
+                {
+                    AjaxHelper.WriteJson(context.Response, "ok", "", cards);
+                    AdminHelper.RecordOperationLog("生成了学习卡" );//写日志
+                }
+                else
+                {
+                    AjaxHelper.WriteJson(context.Response, "error", "生成失败，可能是卡号冲突造成的");
+                }            
+
             }
         }
 }

@@ -21,7 +21,7 @@
                 }*/
                 $.ajax({
                     type: "post",
-                    url: "Login.ashx",
+                    url: "UserController.ashx",
                     data: { username: username, action: "login", password: password, validCode: validCode, autologin: autologin },
                     success: function (data) {
                         if (data.status == "error") {

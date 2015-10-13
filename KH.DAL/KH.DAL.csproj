@@ -48,10 +48,13 @@
     <Compile Include="AdminUsersDAL.ext.cs" />
     <Compile Include="ChaptersDAL.cs" />
     <Compile Include="ChaptersDAL.ext.cs" />
+    <Compile Include="ClassDAL.cs" />
     <Compile Include="CommandInfo.cs" />
     <Compile Include="CoursesDAL.cs" />
     <Compile Include="CoursesDAL.ext.cs" />
     <Compile Include="DbHelperSQL.cs" />
+    <Compile Include="LearnCardsDAL.cs" />
+    <Compile Include="LearnCardsDAL.ext.cs" />
     <Compile Include="NewsCategoriesDAL.cs" />
     <Compile Include="NewsCategoriesDAL.ext.cs" />
     <Compile Include="NewsDAL.cs" />
@@ -66,6 +69,13 @@
     <Compile Include="SegmentsDAL.cs" />
     <Compile Include="SegmentsDAL.ext.cs" />
     <Compile Include="SQLHelperJYF.cs" />
+    <Compile Include="UserActiveCodesDAL.cs" />
+    <Compile Include="UserActiveCodesDAL.ext.cs" />
+    <Compile Include="UserClassRelationDAL.cs" />
+    <Compile Include="UserCoursesDAL.cs" />
+    <Compile Include="UserCoursesDAL.ext.cs" />
+    <Compile Include="UsersDAL.cs" />
+    <Compile Include="UsersDAL.ext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KH.Model\KH.Model.csproj">

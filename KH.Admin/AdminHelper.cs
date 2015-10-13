@@ -1,9 +1,12 @@
 ﻿using KH.BLL;
 using KH.Model;
 using KHCommons;
+using RazorEngine.Text;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace KH.Admin
@@ -160,6 +163,24 @@ namespace KH.Admin
                 HttpContext.Current.Response.Write("当前用户没有【" + powerName + "】权限");
                 HttpContext.Current.Response.End();
             }
+        }
+        /// <summary>
+        /// 取对应数据
+        /// </summary>
+        /// <param name="pageNum"></param>
+        /// <param name="list1"></param>
+        /// <returns></returns>
+        public static List<AdminOperationLogs> AdminOperationPage(long pageNum, List<AdminOperationLogs> list1)
+        {
+            List<AdminOperationLogs> list = new List<AdminOperationLogs>();
+            for (int i = 0; i < list1.Count; i++)
+            {
+                if (i >= (pageNum - 1) * 3 && i <= pageNum * 3 - 1)
+                {
+                    list.Add(list1[i]);
+                }
+            }
+            return list;
         }
     }
 }

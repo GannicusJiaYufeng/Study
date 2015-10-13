@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="/js/themes/default/easyui.css" />
+    <link rel="stylesheet" type="text/css" href="/js/themes/icon.css" />
+    <script src="/js/jquery-1.4.2.min.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/jquery.easyu.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btnSearch").click(function () {
+                var data = $("#formQuery").serialize();//表单序列化  但是少了一个action  就加了一个隐藏字段
+                //data+="&action=search";
+                rpajax("/AdminUser/AdminOperationLogSerach.ashx", data,
+                    function (data) {
+                        if (data.status != "ok") { alert("加载数据失败"+data.msg); }
+                        $("#bodyLogs").empty();//清空旧数据
+                        for (var i = 0; i < data.data.length; i++) {
+                            var log = data.data[i];
+                            $("#bodyLogs").append($("<tr><td>" + log.UserName + "</td><td>" + log.CreateDateTime + "</td><td>" + log.Description + "</td></tr>"));
+                        }
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="formQuery">
+        <input type="checkbox" name="cbByUserName" />用户名：<input type="text" name="username" /><br />
+        <input type="hidden" name="action" value="search" />
+        <input type="checkbox" name="cbByOpDateTime" />操作时间，从<input type="date" name="opStartTime"/>到<input name="opEndTime" type="date" /><br />
+        <input type="checkbox" name="cbByDesc" />操作描述包含<input type="text" name="desc" /><br />
+        <input type="button" id="btnSearch" value="搜索" />
+    </form>
+    <table>
+        <thead>
+            <tr><th>用户</th><th>时间</th><th>操作</th></tr>
+        </thead>
+        <tbody id="bodyLogs">     
+        </tbody>
+    </table>
+</body>
+</html>

@@ -39,6 +39,18 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\..\Redis.Net驱动\Redis\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces">
+      <HintPath>..\..\Redis.Net驱动\Redis\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Redis">
+      <HintPath>..\..\Redis.Net驱动\Redis\ServiceStack.Redis.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text">
+      <HintPath>..\..\Redis.Net驱动\Redis\ServiceStack.Text.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -78,6 +90,7 @@
     <Content Include="imgs\title-bg.png" />
     <Content Include="imgs\tx.png" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\common.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="js\slider.js" />
     <Content Include="linkscript.html" />
@@ -88,12 +101,14 @@
     <Content Include="ViewCourse.ashx" />
     <Content Include="ViewCourse.cshtml" />
     <None Include="aboutus.shtml" />
-    <Content Include="文章内页.html" />
-    <Content Include="文章列表.html" />
-    <Content Include="课程列表页.html" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <None Include="login.shtml" />
+    <Content Include="UserController.ashx" />
+    <None Include="register.shtml" />
+    <Content Include="Msg.cshtml" />
+    <Content Include="ValidCode.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -105,11 +120,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseHandler.cs" />
     <Compile Include="FrontHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LearnCards.cs" />
+    <Compile Include="UserController.ashx.cs">
+      <DependentUpon>UserController.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCourses.cs" />
+    <Compile Include="ValidCode.ashx.cs">
+      <DependentUpon>ValidCode.ashx</DependentUpon>
+    </Compile>
     <Compile Include="ViewCourse.ashx.cs">
       <DependentUpon>ViewCourse.ashx</DependentUpon>
     </Compile>

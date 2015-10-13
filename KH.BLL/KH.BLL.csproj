@@ -49,10 +49,13 @@
     <Compile Include="AdminUsersBLL.ext.cs" />
     <Compile Include="ChaptersBLL.cs" />
     <Compile Include="ChaptersBLL.ext.cs" />
+    <Compile Include="ClassBLL.cs" />
     <Compile Include="ConfigHelper.cs" />
     <Compile Include="CoursesBLL.cs" />
     <Compile Include="CoursesBLL.ext.cs" />
     <Compile Include="DataCache.cs" />
+    <Compile Include="LearnCardsBLL.cs" />
+    <Compile Include="LearnCardsBLL.ext.cs" />
     <Compile Include="NewsBLL.cs" />
     <Compile Include="NewsBLL.ext.cs" />
     <Compile Include="NewsCategoriesBLL.cs" />
@@ -66,6 +69,13 @@
     <Compile Include="RolesBLL.ext.cs" />
     <Compile Include="SegmentsBLL.cs" />
     <Compile Include="SegmentsBLL.ext.cs" />
+    <Compile Include="UserActiveCodesBLL.cs" />
+    <Compile Include="UserActiveCodesBLL.ext.cs" />
+    <Compile Include="UserClassRelationBLL.cs" />
+    <Compile Include="UserCoursesBLL.cs" />
+    <Compile Include="UserCoursesBLL.ext.cs" />
+    <Compile Include="UsersBLL.cs" />
+    <Compile Include="UsersBLL.ext.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KH.DAL\KH.DAL.csproj">

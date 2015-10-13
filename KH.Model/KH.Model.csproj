@@ -40,10 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminOperationLogs.cs" />
+    <Compile Include="AdminOperationLogSearchOption.cs" />
+    <Compile Include="AdminOperationLogsSearch.cs" />
     <Compile Include="AdminUserRoles.cs" />
     <Compile Include="AdminUsers.cs" />
     <Compile Include="Chapters.cs" />
+    <Compile Include="Class.cs" />
     <Compile Include="Courses.cs" />
+    <Compile Include="LearnCards.cs" />
     <Compile Include="News.cs" />
     <Compile Include="NewsCategories.cs" />
     <Compile Include="Powers.cs" />
@@ -51,6 +55,10 @@
     <Compile Include="RolePowers.cs" />
     <Compile Include="Roles.cs" />
     <Compile Include="Segments.cs" />
+    <Compile Include="UserActiveCodes.cs" />
+    <Compile Include="UserClassRelation.cs" />
+    <Compile Include="UserCourses.cs" />
+    <Compile Include="Users.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

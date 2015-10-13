@@ -28,7 +28,7 @@ namespace KH.Admin
                 {
                     context.Response.Redirect("Index.ashx");
                 }
-                else
+                else 
                 {
                     KHHelper.OutputRazor(context, "~/Login.cshtml");
                     return;
@@ -55,11 +55,11 @@ namespace KH.Admin
                     AjaxHelper.WriteJson(context.Response, "error", "验证码不能有空");
                     return;
                 }
-                string sessionValidCode = context.Session[ValidCode.VALIDCODE].ToString();
+                string sessionValidCode = CommonHelper.GetValidCode(context);
                 if (validCode != sessionValidCode)
                 {//时刻注意客户端信不得！！！！！！！！！！！！！！！！！！！！！
                     //只要客户端正常，那这里的验证码就不会用，因为浏览器接下来就会自动刷新验证码
-                    ValidCode.ResetValidCode(context);//一旦错了就重置验证码//这种是避免客户端修改htmljs等影响session的刷新
+                    CommonHelper.ResetValidCode(context);//一旦错了就重置验证码//这种是避免客户端修改htmljs等影响session的刷新
                     AjaxHelper.WriteJson(context.Response, "error", "验证码错了，少年");
                     return;
                 }

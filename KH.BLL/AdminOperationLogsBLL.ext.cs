@@ -7,6 +7,7 @@ using KH.DAL;
 using System.Data.SqlClient;
 using Maticsoft.DBUtility;
 using System.Data;
+using KH.Model;
 
 namespace KH.BLL
 {
@@ -30,5 +31,16 @@ namespace KH.BLL
         {
             return dal.IsHaveAdmin(id) > 0;
         }
+
+       public List<AdminOperationLogsSearch> Search(string where, List<SqlParameter> parameters)
+       {
+           return dal.Search(where, parameters);
+       }
+
+       public List<AdminOperationLogsSearch> Search2(AdminOperationLogSearchOption option)
+       {
+           return dal.Search2(option);
+       }
+
     }
 }

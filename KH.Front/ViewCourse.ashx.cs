@@ -19,7 +19,7 @@ namespace KH.Front
             context.Response.ContentType = "text/html";
             //查询课程数据   课程下的数据
             long courseId=Convert.ToInt64(context.Request["id"]);
-            //通过缓存降级数据库服务器压力
+            //通过缓存降低数据库服务器压力
             Courses course = new CoursesBLL().GetModelByCache(courseId);//new CoursesBLL().GetModel(courseId);
             if (course==null)
             {

@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="js/themes/default/easyui.css" />
     <link rel="stylesheet" type="text/css" href="js/themes/icon.css" />
     <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
-    <script type="text/javascript" src="js/jquery.easyui.js"></script>
+    <script type="text/javascript" src="/js/jquery.easyui.js"></script>
 
-    <script type="text/javascript" src="~/js/outlook2.js"> </script>
+    <script type="text/javascript" src="/js/outlook2.js"> </script>
     <script type="text/javascript">
         if (top.location != location) {
             top.location.href = location.href;   //解决页面嵌套页面的问题
@@ -20,7 +20,7 @@
                  {
                      "menuid": "1", "icon": "icon-sys", "menuname": "系统管理",
                      "menus": [{ "menuname": "test1", "icon": "icon-nav", "url": "1.ashx" },
-                             { "menuname": "后台用户管理", "icon": "icon-add", "url": "AdminUser/AdminUserController.ashx?action=list" },
+                             { "menuname": "后台用户管理", "icon": "icon-add", "url": "AdminUser/AdminUserController.ashx?action=list&page=1" },
                              { "menuname": "操作日志搜索", "icon": "icon-add", "url": "AdminUser/AdminOperationLogSerach.ashx?action=page" },
                              { "menuname": "后台角色管理", "icon": "icon-add", "url": "AdminUser/RoleController.ashx?action=list" },
                              { "menuname": "后台权限管理", "icon": "icon-add", "url": "AdminUser/PowerController.ashx?action=list" },

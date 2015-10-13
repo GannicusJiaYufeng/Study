@@ -11,13 +11,13 @@
                         <h1 class="post-title text-center" style="color:red">
                             <span>@Model.Title</span>
                         </h1>
-                        <h4 class="text-right" id="subtitle">类别：<a href="list_1.shtml">匡衡消息</a>；发表日期：2015/9/28</h4>
+                        <h4 class="text-right" id="subtitle">类别：<a href="http://localhost:3847/News/@(Model.CategoryId)/index_1.shtml">@Model.CategoryName</a>；发表日期：@Model.Time</h4>
                </header>
             <section id="articleBody" class="panel-body post-content">
                 @KHRazor.KHHelper.Raw(Model.Body)
             </section>
             <section id="moreSiblings" class="panel-body post-content text-center">
-                <a href="list_1.shtml" class="btn btn-default" >查看更多匡衡消息&gt;&gt;</a>
+                <a href="http://localhost:3847/News/@(Model.CategoryId)/index_1.shtml" class="btn btn-default">查看更多@(Model.CategoryName)&gt;&gt;</a>
             </section>
         </div>
     </div>

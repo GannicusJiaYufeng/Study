@@ -51,5 +51,31 @@ namespace KH.DAL
             int count = Convert.ToInt32(obj);
             return count > 0;
         }
+
+
+        /// <summary>
+        /// 获取数据，根据id排序，
+        /// 并且页rownum>=startRowNum&&rownum<=endRowNum的  
+        /// </summary>
+        /// <param name="startRowNum"></param>
+        /// <param name="endRowNum"></param>
+        /// <returns></returns>
+        public List<AdminUsers> GetPagedAdminUser(long startRowNum, long endRowNum)
+        {
+            StringBuilder sbSQL = new StringBuilder();
+            sbSQL.AppendLine("select * from(");
+            sbSQL.AppendLine("select ROW_NUMBER() over(order by Id) rownum,*");
+            sbSQL.AppendLine("from T_AdminUsers) t");
+            sbSQL.AppendLine("where  t.rownum>=@startRowNum and t.rownum<=@endRowNum");
+            DataSet ds = DbHelperSQL.Query(sbSQL.ToString(), new SqlParameter("@startRowNum", startRowNum)
+                , new SqlParameter("@endRowNum", endRowNum));
+
+            List<AdminUsers> list = new List<AdminUsers>();
+            foreach (DataRow datarow in ds.Tables[0].Rows)
+            {
+                list.Add(this.DataRowToModel(datarow));
+            }
+            return list;
+        }
     }
 }

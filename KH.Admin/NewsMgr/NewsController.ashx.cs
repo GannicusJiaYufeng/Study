@@ -92,9 +92,9 @@ namespace KH.Admin.NewsMgr
             {
                 AjaxHelper.WriteJson(context.Response, "error", "标题太长，不能超过250");   return;
             }
-            News news = new NewsBLL().GetModel(id); news.Title = title; news.Body = body;
+            News news = new NewsBLL().GetModel(id); news.Title = title; news.Body = body; news.PostDateTime = DateTime.Now;
             new NewsBLL().Update(news);
-            createNewsStaticPage(id, categoryId, title, body);
+            createNewsStaticPage(id, categoryId, title, body,DateTime.Now);
             createNewsListStaticPage(categoryId); //每次修改文章都把该类别下所有的文章列表页面生成
             AjaxHelper.WriteJson(context.Response, "ok", ""); AdminHelper.RecordOperationLog("修改了新闻" + title);//写日志
         }
@@ -140,7 +140,7 @@ namespace KH.Admin.NewsMgr
             long newsId = new NewsBLL().Add(news);//插入，并且获得新增文章的id
             //生成静态化页面
             //页面静态化
-            createNewsStaticPage(newsId, categoryId, title, body);
+            createNewsStaticPage(newsId, categoryId, title, body,DateTime.Now);
             createNewsListStaticPage(categoryId); //每次新增文章都把该类别下所有的文章列表页面生成
             AjaxHelper.WriteJson(context.Response, "ok", ""); AdminHelper.RecordOperationLog("增加了新闻" + title);//写日志
         }
@@ -192,12 +192,15 @@ namespace KH.Admin.NewsMgr
         /// <param name="categoryId"></param>
         /// <param name="title"></param>
         /// <param name="body"></param>
-        private static void createNewsStaticPage(long id, long categoryId, string title, string body)
+        private static void createNewsStaticPage(long id, long categoryId, string title, string body,DateTime time)
         {
             string html = KHHelper.ParseRazor(HttpContext.Current, "~/NewsMgr/ViewNews.cshtml", new
             {
                 Title = title,
-                Body = body
+                Body = body,
+                Time=time,
+                CategoryName = (new NewsCategoriesBLL().GetModel(categoryId)).Name,
+                CategoryId = categoryId
             });
             //从配置文件（web.config）中读取静态页生成路径
             string newStaticDir = ConfigurationManager.AppSettings["NewsStaticDir"];
@@ -213,10 +216,11 @@ namespace KH.Admin.NewsMgr
         {
             long categoryId = Convert.ToInt64(context.Request["categoryId"]);
             NewsBLL bll = new NewsBLL();
-            var news = bll.GetModelList("CategoryId=" + categoryId);
+            var news = bll.GetModelList("CategoryId=" + categoryId); 
             foreach (var item in news)
             {
-                createNewsStaticPage(item.Id, item.CategoryId, item.Title, item.Body);//生成静态页
+                DateTime time=item.PostDateTime;
+                createNewsStaticPage(item.Id, item.CategoryId, item.Title, item.Body,time);//生成静态页
             }
             createNewsListStaticPage(categoryId);//重新生成列表页面
             AjaxHelper.WriteJson(context.Response, "ok", ""); AdminHelper.RecordOperationLog("一键生成了静态页");//写日志

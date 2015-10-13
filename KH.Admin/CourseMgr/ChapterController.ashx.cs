@@ -15,6 +15,7 @@ namespace KH.Admin.CourseMgr
     {
 
         //面向对象中继承的优点：把通用的工作交给父类完成
+          [PowerAction("章节管理")]
         public void list(HttpContext context)
         {
             AdminHelper.CheckPower("章节管理");//检查登录用户的权限
@@ -32,7 +33,6 @@ namespace KH.Admin.CourseMgr
             long courseId = Convert.ToInt64(context.Request["courseId"]);
             KHHelper.OutputRazor(context, "~/CourseMgr/ChapterAddNewEdit.cshtml", new { courseId = courseId, action = "addnewSave", id = "", name = "", oldSeqNo = "" });
         }
-
         public void addnewSave(HttpContext context)
         {
             string name = context.Request["Name"];

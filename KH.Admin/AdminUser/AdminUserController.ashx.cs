@@ -23,8 +23,11 @@ namespace KH.Admin.AdminUser
             string action = context.Request["action"];
             if (action == "list")//显示所有用户
             {
-                List<AdminUsers> users = new AdminUsersBLL().GetModelList("");//调用bll获取用户列表
-                KHHelper.OutputRazor(context, "~/AdminUser/AdminUserList.cshtml", users);
+                long i = Convert.ToInt64(context.Request["page"]);
+                var totalSize = new AdminUsersBLL().GetRecordCount("");//总数据条数
+                var users = new AdminUsersBLL().GetPagedAdminUser((i - 1) * 3 + 1, i * 3);
+                //fenye  
+                KHHelper.OutputRazor(context, "~/AdminUser/AdminUserList.cshtml", new { users=users,TotalSize=totalSize,CurrentPag=i});
             }
             else if (action == "addnew")//新增用户
             {
@@ -90,7 +93,7 @@ namespace KH.Admin.AdminUser
                 {
                     AjaxHelper.WriteJson(context.Response, "error", "用户名已经存在"); return;
                 }
-                if (password.Length < 6 || username.Length > 12)
+                if (password.Length < 6 || password.Length > 12)
                 {
                     AjaxHelper.WriteJson(context.Response, "error", "密码的长度必须介于6和12之间"); return;
                 }
@@ -134,7 +137,7 @@ namespace KH.Admin.AdminUser
                 {
                     AdminUsersBLL bll = new AdminUsersBLL();
                     bll.Delete(id);
-                    context.Response.Redirect("AdminUserController.ashx?action=list");
+                    context.Response.Redirect("AdminUserController.ashx?action=list&page=1");
                     AdminHelper.RecordOperationLog("删除了用户:" + bll.GetModel(id).UserName);//写日志
                 }
             }
@@ -166,10 +169,8 @@ namespace KH.Admin.AdminUser
                 }
                 else
                 {
-                    AdminUsersBLL bll = new AdminUsersBLL();
-                    AdminUsers user = bll.GetByUserName(username);
-                    user.Password = CommonHelper.CalcMD5(txt1);
-                    bll.Update(user);
+                    AdminUsers user = new AdminUsersBLL().GetByUserName(username);
+                    user.Password = CommonHelper.CalcMD5(txt1);new AdminUsersBLL().Update(user);
                     AjaxHelper.WriteJson(context.Response, "ok", "");
                 }
             }

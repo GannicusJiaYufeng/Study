@@ -1,0 +1,92 @@
+﻿<!--#include file="/head.html"-->
+<title>注册</title>
+<!--#include file="/linkscript.html"-->
+<script type="text/javascript">
+    $(function () {
+        $("#btnReg").click(function () {
+            var username = $("#username").val();
+            var password = $("#password").val();
+            var password2 = $("#password2").val();
+            var email = $("#email").val();
+            var validCode = $("#validCode").val();
+            //非空验证都在服务器端，客户端有假 客户端就只检查邮箱和两次密码相同不，其余难得检查。JQuery EasyUI
+            if (password != password2) {
+                $("#pwdError").text("两次输入的密码不一致！");
+                return;
+            }
+            $.ajax({
+                url: "UserController.ashx", type: "post",
+                dataType:"json",
+                data: { action: "registerSubmit", username: username, password: password, email: email, validCode: validCode },
+                success: function (data) {
+                    if (data.status == "ok") {
+                        alert("注册成功");
+                        window.location.href = "index.shtml";
+                    }
+                    else {
+                        $("#imgValidCode").attr("src", "UserController.ashx?action=createValideCode&d=" + new Date());
+                        alert("注册失败："+data.msg);
+                    }
+                },
+                error: function () {
+                    alert("注册请求失败");
+                }
+            });
+        });
+        //焦点离开编写正则表达式检查email地址是否正确
+        $("#email").blur(function(){
+            var email = $("#email").val();
+            if(!email.match(/^[0-9a-zA-Z_.-]+@[0-9a-zA-Z_.-]+[.]([a-zA-Z]+){1,2}$/))
+            {
+                alert("邮箱地址输入错误");
+            }
+        })
+        $("#imgValidCode").click(function () {
+            //点击图片验证码刷新
+            this.src = 'UserController.ashx?action=createValideCode&d=' + Math.random();
+        })
+
+        $("#password2").blur(function () {
+            var password = $("#password").val();
+            var password2 = $("#password2").val();
+            if (password != password2) {
+                $("#pwdError").text("两次输入的密码不一致！");
+                return;
+            }
+            else {
+                $("#pwdError").text("");
+            }
+        });
+        $("#username").blur(function () {
+            var username = $("#username").val();
+            $.ajax({
+                url: "UserController.ashx", type: "post", dataType: "json",
+                data: { action: "checkUserName", username: username },
+                success: function (data) {
+                    if (data.status == "ok") {
+                        $("#userNameMsg").text("此用户名可用");
+                    }
+                    else {
+                        $("#userNameMsg").text("此用户名不可用，请换用其他用户名");
+                    }
+                },
+                error: function () {
+                    $("#userNameMsg").text("检查用户名是否可用失败");
+                }
+            });
+        });
+    });
+</script>
+<!--#include file="/headend.html"-->
+<!--#include file="/navbar.html"-->
+<main id="post-page" class="container mainContent" role="main">
+    <table>
+        <tr><td><label for="username">用户名：</label></td><td><input type="text" id="username" /><span id="userNameMsg"></span></td></tr>
+        <tr><td><label for="password">输入密码：</label></td><td><input type="password" id="password" /></td></tr>
+        <tr><td><label for="password2">再次输入密码：</label></td><td><input type="password" id="password2" /><label id="pwdError"></label></td></tr>
+        <tr><td><label>邮箱：</label></td><td><input type="text" id="email" /></td></tr>
+        <tr><td><label>验证码：</label></td><td><input type="text" id="validCode" /><img id="imgValidCode" src="UserController.ashx?action=createValideCode" /></td></tr>
+        <tr><td><input type="button" id="btnReg" value="注册" /></td><td></td></tr>
+    </table>
+</main>
+<!--#include file="/foot.html"-->

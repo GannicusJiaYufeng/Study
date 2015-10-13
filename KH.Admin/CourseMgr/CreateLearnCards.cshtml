@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>生成学习卡</title>    
+    <script src="/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript">
+        var createFunc = function () {
+            var courseId = $("#CourseList").val();
+            var prefix = $("#txtCardBefore").val();
+            var expireDays = $("#txtExpDate").val();
+            var startNo = $("#txtBegin").val();
+            var endNo = $("#txtEnd").val();
+            $.ajax({
+                type: "post", url: "CourseController.ashx", dataType: "json",
+                data: {
+                    action: "CreateLearnCardsSubmit", courseId: courseId,
+                    prefix: prefix, expireDays: expireDays, startNo: startNo, endNo: endNo
+                },
+                success: function (data) {
+                    if (data.status == "ok") {
+                        var result = "";
+                        var cards = data.data;
+                        for (var i = 0; i < cards.length; i++) {
+                            var card = cards[i];
+                            result += "卡号："+card.CardNum + "\r\n" + "密码："+card.Password + "\r\n\r\n";
+                        }
+                        $("#txtInfo").val(result);
+                    }
+                    else {
+                        alert("失败:" + data.msg);
+                    }
+                },
+                error: function () {
+                    alert("生成学习卡通讯失败");
+                }
+            });
+        };
+        $(function () {
+            $("#btnCreate").click(createFunc);
+        });
+    </script>
+</head>
+<body>
+    课程: @KHRazor.KHHelper.DropDownList(Model.Courses, "Id", "Name", null, new { id="CourseList"}) 
+            卡号前缀:<input type="text" id="txtCardBefore" name="txtCardBefore" /><br />
+            卡号有效期天数:<input type="text" id="txtExpDate" name="txtExpDate" onkeyup="this.value=this.value.replace(/[^\d\.]/g,'')" />天
+            卡号起始数:<input type="text" id="txtBegin" name="txtBegin" onkeyup="this.value=this.value.replace(/[^\d\.]/g,'')" />
+            卡号结束数:<input type="text" id="txtEnd" name="txtEnd" onkeyup="this.value=this.value.replace(/[^\d\.]/g,'')" /><br />
+            <input type="button" name="btnCreate" id="btnCreate" value="生成" /><br />
+            <textarea name="txtInfo" id="txtInfo" style="width: 500px; height: 500px;"></textarea>
+
+</body>
+</html>

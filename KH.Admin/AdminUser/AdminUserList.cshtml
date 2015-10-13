@@ -4,6 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
     <script src="~/js/jquery-1.4.2.min.js"></script>
+    <link href="/css/bootstrap.min.css" media="all" rel="stylesheet" />
+    <link href="/css/main.css" media="all" rel="stylesheet" />
     <script type="text/javascript">
         $(function () {
             //在角色新增处有个新方法。更简单。
@@ -55,13 +57,14 @@
 <body>
     <a href="AdminUserController.ashx?action=addnew">新增用户</a>
 
-    <table>
+    <table border="1" width="50%" cellspacing="0px" style="border-collapse:
+    collapse" cellpadding="5px">
         <thead>
-            <tr><th>选择</th><th>用户名</th><th>删除</th><th>禁用</th><th>重置</th></tr>
+            <tr><th>选择</th><th>用户名</th><th>删除</th><th>禁用</th><th>重置</th><th>编辑</th></tr>
         </thead>
         <tbody>
             @{
-                List<KH.Model.AdminUsers> users = (List<KH.Model.AdminUsers>)Model;
+                List<KH.Model.AdminUsers> users = (List<KH.Model.AdminUsers>)Model.users;
                 foreach (var user in users)
                 {
                     if (!user.IsEnabled) { continue; }//不显示禁用的用户
@@ -79,5 +82,9 @@
     </table>
     <input type="button" id="btnBatchDelete" value="批量删除" />&nbsp;&nbsp;&nbsp;
     <input type="button" id="btnBatchDisable" value="批量禁用" />
+    <ul class='pagination col-md-12'>
+        @KHRazor.KHHelper.Pager("AdminUserController.ashx?action=list&page={pagenum}",
+                    Model.TotalSize, 3, Model.CurrentPag)
+        </ul>
 </body>
 </html>
